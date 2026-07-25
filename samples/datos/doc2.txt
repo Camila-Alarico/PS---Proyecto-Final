@@ -1,0 +1,2 @@
+Segundo documento de ejemplo.
+Se usa para validar backups incrementales y restauracion.

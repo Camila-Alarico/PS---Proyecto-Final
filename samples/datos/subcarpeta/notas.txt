@@ -1,0 +1,2 @@
+Notas dentro de una subcarpeta.
+Sirve para probar el respaldo recursivo de directorios.
