@@ -1,9 +1,3 @@
-# ============================================================
-#  Makefile - ADMIN en Linux
-#  Programacion de Sistemas - UNSA 2026
-#  Compilacion separada: cada .c -> obj/.o -> binario 'admin'
-# ============================================================
-
 CC      := gcc
 CSTD    := -std=gnu11
 WARN    := -Wall -Wextra
@@ -18,7 +12,6 @@ SRC_DIR := src
 OBJ_DIR := obj
 BIN     := admin
 
-# Descubrir automaticamente todos los fuentes
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 OBJS := $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 DEPS := $(wildcard include/*.h)
@@ -28,11 +21,9 @@ DEPS := $(wildcard include/*.h)
 all: $(BIN)
 	@echo "\n[OK] Compilacion terminada. Ejecuta:  ./$(BIN)"
 
-# Enlace final
 $(BIN): $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
 
-# Regla de compilacion separada (un objeto por cada fuente)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEPS) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
