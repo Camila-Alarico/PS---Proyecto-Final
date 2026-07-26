@@ -1,8 +1,6 @@
 CC      := gcc
 CSTD    := -std=gnu11
 WARN    := -Wall -Wextra
-# Se silencian solo las advertencias de "peor caso" de snprintf/strncpy
-# (falsos positivos: los buffers estan dimensionados con margen suficiente).
 NOWARN  := -Wno-format-truncation -Wno-stringop-truncation
 CFLAGS  := $(CSTD) $(WARN) $(NOWARN) -O2 -Iinclude -pthread
 LDFLAGS := -pthread
